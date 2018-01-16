@@ -1,0 +1,57 @@
+DirectoryIndex index.php
+RewriteEngine On
+# Основной домен
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+# php_flag  display_errors 0
+# php_flag  display_startup_errors 0
+
+# Главная
+RewriteRule ^index.html$ index.php [L]
+
+# Статистика
+RewriteRule ^statistic(/?)+$ index.php?menu=stat [L]
+
+# Правила
+RewriteRule ^rules(/?)+$ index.php?menu=rules [L]
+
+# Контакты
+RewriteRule ^support(/?)+$ index.php?menu=contacts [L]
+
+# Новости
+RewriteRule ^news(/?)+$ index.php?menu=news [L]
+
+# О нас
+RewriteRule ^about(/?)+$ index.php?menu=about [L]
+
+RewriteRule ^faq(/?)+$ index.php?menu=faq [L]
+
+# Регистрация
+RewriteRule ^signup/key/(.*)(/?)+$ index.php?menu=signup&key=$1 [L]
+RewriteRule ^registration(/?)+$ index.php?menu=signup [L]
+
+RewriteRule ^authorization(/?)+$ index.php?menu=authorization [L]
+
+
+
+# Аккаунт
+
+RewriteRule ^bonus(/?)+$ index.php?menu=account&sel=bonus [L]
+RewriteRule ^settings(/?)+$ index.php?menu=account&sel=settings [L]
+RewriteRule ^insert(/?)+$ index.php?menu=account&sel=refill [L]
+RewriteRule ^insert-fk(/?)+$ index.php?menu=account&sel=insert_fk [L]
+RewriteRule ^insert-yandex(/?)+$ index.php?menu=account&sel=insert_yandex [L]
+RewriteRule ^insert-payeer(/?)+$ index.php?menu=account&sel=insert_payeer [L]
+RewriteRule ^withdrawals.html/([0-9]+)(/?)+$ index.php?menu=account&sel=withdrawals&pay_id=$1 [L]
+RewriteRule ^out(/?)+$ index.php?menu=account&sel=withdrawals [L]
+RewriteRule ^qiwi-payment(/?)+$ index.php?menu=account&sel=qiwi_payment [L]
+RewriteRule ^yandex-payment(/?)+$ index.php?menu=account&sel=yandex_payment [L]
+RewriteRule ^payeer-payment(/?)+$ index.php?menu=account&sel=payeer_payment [L]
+RewriteRule ^exchange(/?)+$ index.php?menu=account&sel=exchange [L]
+RewriteRule ^my-farm(/?)+$ index.php?menu=account&sel=store [L]
+RewriteRule ^referrals(/?)+$ index.php?menu=account&sel=referrals [L]
+RewriteRule ^lavka(/?)+$ index.php?menu=account&sel=farm [L]
+RewriteRule ^chat([a-z]+)/([a-zA-Z0-9]+)(/?)+$ index.php?menu=chat&t=$1&id=$2 [L]
+RewriteRule ^chat(/?)+$ index.php?menu=account&sel=chat [L]
+RewriteRule ^exit(/?)+$ index.php?menu=account&sel=output [L]
+RewriteRule ^farmer(/?)+$ index.php?menu=account [L]
